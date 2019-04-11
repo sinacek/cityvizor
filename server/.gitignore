@@ -1,0 +1,9 @@
+# sensitive data
+src/config/config.production.js
+src/config/config.development.js
+
+# dependencies
+/node_modules
+
+# misc
+npm-debug.log
