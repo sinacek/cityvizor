@@ -40,7 +40,7 @@ export class ExportService {
         amount: record.budgetAmount
       });
       records.push({
-        type: null,
+        type: "UCT",
         paragraph: record.paragraph,
         item: record.item,
         event: record.event,
@@ -66,7 +66,7 @@ export class ExportService {
 
     // substract the payments from the total sums
     records.push(...(<(ImportedPayment | AccountingPayment)[]>data.payments).map(payment => ({
-      type: null,
+      type: "UCT",
       paragraph: payment.paragraph,
       item: payment.item,
       event: payment.event,
@@ -75,7 +75,7 @@ export class ExportService {
     })));
 
     const options: ExportOptions = { delimiter: ",", encoding: "utf8", newline: "\r\n" };
-    
+
     await this.downloadFile(this.createCSV(records, options), "data.csv", options.encoding);
   }
 
